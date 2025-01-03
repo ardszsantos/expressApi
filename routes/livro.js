@@ -3,7 +3,11 @@ const router = Router()
 
 
 router.get('/', (req, res) => {
-    res.send("Olá mundo")
+    try {
+        res.send("Olá mundo")
+    } catch (error) {
+        res.status(500)
+    }
 });
 
 router.post('/', (req, res) => {
@@ -12,7 +16,7 @@ router.post('/', (req, res) => {
 router.patch('/', (req, res) => {
     res.send("Você fez uma requisição do tipo PATCH")
 })
-router.delte('/', (req, res) => {
+router.delete('/', (req, res) => {
     res.send("Você fez uma requisição do tipo PUT")
 })
 
