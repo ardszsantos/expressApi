@@ -8,7 +8,7 @@ router.get('/:id', getLivro)
 
 router.post('/', postLivro)
 router.patch('/:id', patchLivros)
-router.delete('/', deleteLivros)
+router.delete('/:id', deleteLivros)
 
 
 module.exports = router
