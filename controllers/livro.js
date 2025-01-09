@@ -1,5 +1,5 @@
 const fs = require("fs")
-const { getTodosLivros, getLivroPorId, insereLivro, modificaLivro } = require("../services/livro")
+const { getTodosLivros, getLivroPorId, insereLivro, modificaLivro, deletaLivro } = require("../services/livro")
 
 function getLivros(req, res) {
     try {
@@ -50,6 +50,15 @@ function patchLivros(req, res) {
 }
 
 function deleteLivros(req, res) {
+    try {
+        const id = req.params.id
+        deletaLivro(id)
+        res.send("Livro deletado com sucesso.")
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
+
     res.send("Você fez uma requisição do tipo DELETE")
 
 
